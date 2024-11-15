@@ -26,19 +26,19 @@
 
         default_layer {
             bindings = <
-&mt LGUI RBKT    &kp Q  &kp W  &kp E        &kp R            &kp T        &kp Y        &kp U           &kp I        &kp O    &kp P     &kp LBKT
-&mt LCTRL GRAVE  &kp A  &kp S  &kp D        &kp F            &kp G        &kp H        &kp J           &kp K        &kp L    &kp SEMI  &mt RCTRL SQT
-&mt LALT MINUS   &kp Z  &kp X  &kp C        &kp V            &kp B        &kp N        &kp M           &kp COMMA    &kp DOT  &kp FSLH  &mt RALT BSLH
-                               &lt RSE TAB  &mt LSHFT SPACE  &lt LWR RET  &lt LWR ESC  &mt RSHFT BSPC  &lt RSE DEL
+&kp TAB           &kp Q  &kp W  &kp E            &kp R                 &kp T        &kp Y           &kp U            &kp I              &kp O    &kp P     &kp ESCAPE
+&kp LEFT_SHIFT    &kp A  &kp S  &kp D            &kp F                 &kp G        &kp H           &kp J            &kp K              &kp L    &kp SEMI  &mt RCTRL SQT
+&kp LEFT_CONTROL  &kp Z  &kp X  &kp C            &kp V                 &kp B        &kp N           &kp M            &kp COMMA          &kp DOT  &kp FSLH  &mt RALT BSLH
+                                &lt RSE PAGE_UP  &mt LEFT_SHIFT SPACE  &lt LWR RET  &lt LWR DELETE  &mt RSHFT SPACE  &lt RSE PAGE_DOWN
             >;
         };
 
         lower_layer {
             bindings = <
-&mt LGUI F1     &kp F2    &kp F3  &kp F4    &kp F5    &kp F6     &kp F7     &kp F8    &kp F9    &kp F10   &kp F11   &kp F12
-&mt LCTRL PLUS  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT  &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR  &mt RCTRL MINUS
-&mt LALT EQUAL  &kp N1    &kp N2  &kp N3    &kp N4    &kp N5     &kp N6     &kp N7    &kp N8    &kp N9    &kp N0    &kp RALT
-                                  &trans    &trans    &trans     &trans     &trans    &trans
+&kp MINUS  &kp EQUAL      &kp N7        &kp N8        &kp N9          &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp F7          &kp F8  &kp F9  &kp F10           &kp F11
+&kp PLUS   &kp EXCL       &kp NUMBER_4  &kp N5        &kp NUMBER_6    &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp F4          &kp F5  &kp F6  &kp RPAR          &kp PIPE
+&kp COLON  &kp LESS_THAN  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp F1          &kp F2  &kp F3  &kp GREATER_THAN  &kp RALT
+                                        &trans        &kp LEFT_SHIFT  &trans                &trans                 &kp LEFT_SHIFT  &trans
             >;
         };
 
