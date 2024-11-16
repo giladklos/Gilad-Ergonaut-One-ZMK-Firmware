@@ -11,6 +11,8 @@
 
 &mt { quick-tap-ms = <200>; };
 
+&caps_word { continue-list = <BACKSPACE DELETE>; };
+
 / {
     conditional_layers {
         compatible = "zmk,conditional-layers";
@@ -21,13 +23,24 @@
         };
     };
 
+    behaviors {
+        caps: caps {
+            compatible = "zmk,behavior-tap-dance";
+            label = "CAPS";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_SHIFT>, <&caps_word>;
+
+            tapping-term-ms = <200>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             bindings = <
 &kp TAB           &kp Q           &kp W               &kp E            &kp R                 &kp T              &kp Y           &kp U              &kp I              &kp O                &kp P                    &kp ESCAPE
-&kp LEFT_SHIFT    &mt LEFT_GUI A  &mt LEFT_CONTROL S  &mt LEFT_ALT D   &mt LEFT_SHIFT F      &kp G              &kp H           &mt RIGHT_SHIFT J  &mt RIGHT_ALT K    &mt RIGHT_CONTROL L  &mt RIGHT_GUI SEMICOLON  &mt RCTRL SQT
+&caps             &mt LEFT_GUI A  &mt LEFT_CONTROL S  &mt LEFT_ALT D   &mt LEFT_SHIFT F      &kp G              &kp H           &mt RIGHT_SHIFT J  &mt RIGHT_ALT K    &mt RIGHT_CONTROL L  &mt RIGHT_GUI SEMICOLON  &mt RCTRL SQT
 &kp LEFT_CONTROL  &kp Z           &kp X               &kp C            &kp V                 &kp B              &kp N           &kp M              &kp COMMA          &kp DOT              &kp FSLH                 &mt RALT BSLH
                                                       &lt RSE PAGE_UP  &mt LEFT_SHIFT ENTER  &lt LWR BACKSPACE  &lt LWR DELETE  &mt RSHFT SPACE    &lt RSE PAGE_DOWN
             >;
@@ -35,9 +48,9 @@
 
         lower_layer {
             bindings = <
-&kp MINUS  &kp EQUAL      &kp N7        &kp N8        &kp N9          &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp F7          &kp F8  &kp F9  &kp F10           &kp F11
+&kp MINUS  &kp N0         &kp N7        &kp N8        &kp N9          &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp F7          &kp F8  &kp F9  &kp F10           &kp F11
 &kp PLUS   &kp EXCL       &kp NUMBER_4  &kp N5        &kp NUMBER_6    &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp F4          &kp F5  &kp F6  &kp RPAR          &kp PIPE
-&kp COLON  &kp LESS_THAN  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp F1          &kp F2  &kp F3  &kp GREATER_THAN  &kp RALT
+&kp EQUAL  &kp LESS_THAN  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp F1          &kp F2  &kp F3  &kp GREATER_THAN  &kp RALT
                                         &trans        &kp LEFT_SHIFT  &trans                &trans                 &kp LEFT_SHIFT  &trans
             >;
         };
