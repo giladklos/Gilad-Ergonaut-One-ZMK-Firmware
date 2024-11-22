@@ -9,7 +9,7 @@
 
 &lt { quick-tap-ms = <200>; };
 
-&mt { quick-tap-ms = <200>; };
+&mt { quick-tap-ms = <170>; };
 
 &caps_word { continue-list = <BACKSPACE DELETE>; };
 
@@ -32,6 +32,26 @@
 
             tapping-term-ms = <200>;
         };
+
+        phtr: positional_hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <170>;
+            quick-tap-ms = <170>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <0,1,2,3,4,5,12,13,14,15,16,17,24,25,26,27,28,29,36,37,38,39,40,41>;    // <---[[the W key]]
+        };
+
+        phll: positional_hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <170>;
+            quick-tap-ms = <170>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <6,7,8,9,10,11,18,19,20,21,22,23,30,31,32,33,34,35,36,37,38,39,40,41>;    // <---[[the W key]]
+        };
     };
 
     keymap {
@@ -40,16 +60,16 @@
         default_layer {
             bindings = <
 &kp TAB           &kp Q           &kp W               &kp E            &kp R                 &kp T              &kp Y           &kp U              &kp I              &kp O                &kp P                    &kp ESCAPE
-&caps             &mt LEFT_GUI A  &mt LEFT_CONTROL S  &mt LEFT_ALT D   &mt LEFT_SHIFT F      &kp G              &kp H           &mt RIGHT_SHIFT J  &mt RIGHT_ALT K    &mt RIGHT_CONTROL L  &mt RIGHT_GUI SEMICOLON  &mt RCTRL SQT
+&caps             &phll LEFT_GUI A  &phll LEFT_CONTROL S  &phll LEFT_ALT D   &phll LEFT_SHIFT F      &kp G              &kp H           &phtr RIGHT_SHIFT J  &phtr RIGHT_ALT K    &phtr RIGHT_CONTROL L  &phtr RIGHT_GUI SEMICOLON  &phtr RCTRL SQT
 &kp LEFT_CONTROL  &kp Z           &kp X               &kp C            &kp V                 &kp B              &kp N           &kp M              &kp COMMA          &kp DOT              &kp FSLH                 &mt RALT BSLH
-                                                      &lt RSE PAGE_UP  &mt LEFT_SHIFT ENTER  &lt LWR BACKSPACE  &lt LWR DELETE  &mt RSHFT SPACE    &lt RSE PAGE_DOWN
+                                                      &lt ADJ PAGE_UP  &mt LEFT_SHIFT ENTER  &RSE LWR BACKSPACE  &lt LWR DELETE  &mt RSHFT SPACE    &lt ADJ PAGE_DOWN
             >;
         };
 
         lower_layer {
             bindings = <
 &kp MINUS  &kp N0         &kp N7        &kp N8        &kp N9          &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp F7          &kp F8  &kp F9  &kp F10           &kp F11
-&kp PLUS   &kp EXCL       &kp NUMBER_4  &kp N5        &kp NUMBER_6    &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp F4          &kp F5  &kp F6  &kp RPAR          &kp PIPE
+&kp PLUS   &kp EXCL       &kp NUMBER_4  &kp N5        &kp NUMBER_6    &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp F4          &kp F5  &kp F6  &kp F12          &kp PIPE
 &kp EQUAL  &kp LESS_THAN  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp F1          &kp F2  &kp F3  &kp GREATER_THAN  &kp RALT
                                         &trans        &kp LEFT_SHIFT  &trans                &trans                 &kp LEFT_SHIFT  &trans
             >;
